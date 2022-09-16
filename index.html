@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+  <title>JM</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="James Malarkey is a programmer, focused on delivering high quality visual and technical solutions.">
+  <meta name="robots" content="index, follow, all">
+  <meta name="author" content="James Malarkey">
+  <meta name="publisher" content="James Malarkey">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link href="dist/main.css" rel="stylesheet">
+</head>
+<body>
+  <div class="bg-[#EFEFEF] dark:bg-black dark:text-white">
+    <nav class="flex justify-between items-center px-2 sticky top-0">
+      <div class="flex items-center gap-2">
+        <img src="assets/avatar.png" height="32px" alt="This is how I feel" class="rounded-full w-8 h-8">
+        <small class="text-gray-700 dark:text-gray-400 text-xs">
+          Currently not available
+        </small>
+      </div>
+    
+      <div class="bg-gray-200 dark:bg-zinc-800 rounded p-2 m-2 flex items-center space-x-2 text-xs">
+        <span class="cursor-pointer font-semibold" id="light-mode-button">Light</span>
+        <span class="text-opacity-80 cursor-pointer font-semibold" id="dark-mode-button">Dark</span>
+      </div>
+    </nav>
+
+    <section>
+      <div class="container max-w-screen-sm mx-auto">
+        <div class="hero">
+          <img src="assets/night.png" id="nightImage" class="hidden" title="My desk at night">
+          <img src="assets/day.png" id="dayImage" title="My desk during the day">
+        </div>
+      </div>
+  
+      <div class="container mx-auto max-w-screen-sm leading-loose">
+        <h1 class="text-center">
+          <b class="font-bold">James Malarkey</b> — CTO
+        </h1>
+        <p class="text-xs text-zinc-700 dark:text-zinc-400 text-center">* JM is just my initials — that's it — I don't have a personal brand.</p>
+      </div>
+    </section>
+
+    <section class="my-16">
+      <div class="container mx-auto max-w-screen-sm leading-loose">
+        <h2 class="font-bold text-xl">The work stuff</h2>
+        <p class="text-zinc-600 dark:text-zinc-400">
+          I'm currently the CTO of <a class="text-sky-600 underline underline-offset-4" href="https://anbaryadaki.com/" title="Anbaryadaki">Anbaryadaki</a>. I'm used to working in fast-paced environments and collaborating with interdisciplinary teams.
+          My design approach is realistic and creative, supported by skills in frontend development — all that to say that I know how to translate my ideas into Code. My specialty is <span class="tag">web development</span> but have been enjoying learning about all sorts of things like <span class="tag">data sience</span> and <span class="tag">machine learning</span>.
+        </p>
+      </div>
+    </section>
+
+    <section class="my-16">
+      <div class="container mx-auto max-w-screen-sm leading-loose">
+        <h2 class="font-bold text-xl">Now</h2>
+  
+        <p class="text-zinc-600 dark:text-zinc-400">
+          I'm clearly interested in too many things so I'm trying to slow down and be more present. Literally slow down by working on one project at a time, using less stuff in general and learn to appreciate little things. Send me an email like a normal person if you want to work with me. <span class="tag">jimmymalark@gmail.com</span>.
+        </p>
+      </div>
+    </section>
+    
+    <footer class="pb-16">
+      <div class="container mx-auto max-w-screen-sm leading-loose text-zinc-500">
+        <p class="text-xs leading-loose">
+            Welcome to my footnotes – a smaller, simpler world that cares about the little things. I don't have big ideas. I believe in learning things the long hard way. Like finding the energy to have a website (or whatever this is). Not sure why I do this but it feels right to speak my truth. I design websites because I got good enough to get paid for it – it's wild. I probably sound like a basic yuppie. Perhaps. These few words and what I do everyday are the only traces of my existense. There is so much stuff out there, it's at best very distracting but realistically destructive. I don't want this for myself, my people and honestly the world. I crave contemplation but rarelly get to it. Discipline and self examination keep me sane.
+        </p>
+        <p class="text-xs leading-loose mt-4">
+          As you've noticed by now, there isn't much to steal here. Also, I don't track anything, no cookies for you buddy.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script type="text/javascript">
+    const lightmodebutton = document.getElementById('light-mode-button');
+    const darkmodebutton = document.getElementById('dark-mode-button');
+    const nightImage = document.getElementById('nightImage');
+    const dayImage = document.getElementById('dayImage');
+
+    lightmodebutton.addEventListener("click", () => {
+    
+      darkmodebutton.classList.add('opacity-50');
+      lightmodebutton.classList.remove('opacity-50');
+    
+      document.body.classList.remove('dark');
+      nightImage.classList.add('hidden');
+      dayImage.classList.remove('hidden');
+
+      localStorage.setItem('theme', 'light');
+    },false);
+    
+    darkmodebutton.addEventListener("click", () => {
+    
+      darkmodebutton.classList.remove('opacity-50');
+      lightmodebutton.classList.add('opacity-50');
+      
+      document.body.classList.add('dark');
+      dayImage.classList.add('hidden');
+      nightImage.classList.remove('hidden');
+    
+      localStorage.setItem('theme', 'dark');
+    },false);
+
+    if(localStorage.getItem('theme') == 'dark') {
+      darkmodebutton.classList.remove('opacity-50');
+      lightmodebutton.classList.add('opacity-50');
+      
+      document.body.classList.add('dark');
+      dayImage.classList.add('hidden');
+      nightImage.classList.remove('hidden');
+    } else {
+      darkmodebutton.classList.add('opacity-50');
+      lightmodebutton.classList.remove('opacity-50');
+    }
+  </script>
+  
+</body>
+</html>
